@@ -1,0 +1,73 @@
+/* web-kit 0.1.0 · components/header/header.css
+ *
+ * Wide: wordmark left, nav then toggle right, one row.
+ * Narrow (< 45rem, keep in sync with --wk-wrap-at): row 1 wordmark + toggle,
+ * row 2 nav links wrapping horizontally — never a vertical stack that pushes
+ * content below the fold.
+ */
+.wk-header {
+  box-sizing: border-box;        /* 100% + padding must not overflow on sites without a reset */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--wk-gap, 1rem) / 2) var(--wk-gap, 1rem);
+  inline-size: 100%;
+  max-inline-size: var(--wk-page-max, 44rem);
+  margin-inline: auto;
+  padding: var(--wk-gap, 1rem);
+}
+
+.wk-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-block-size: var(--wk-tap, 2.75rem);
+  margin-inline-end: auto;
+  color: var(--wk-ink, CanvasText);
+  text-decoration: none;
+}
+
+.wk-nav {
+  order: 3;
+  flex-basis: 100%;
+}
+
+.wk-nav__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--wk-gap, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wk-nav__items a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--wk-tap, 2.75rem);
+  color: var(--wk-muted, GrayText);
+  text-decoration: none;
+}
+
+.wk-nav__items a:hover,
+.wk-nav__items a[aria-current="page"] {
+  color: var(--wk-accent, LinkText);
+}
+
+.wk-nav__items a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.wk-wordmark:focus-visible,
+.wk-nav__items a:focus-visible {
+  outline: 2px solid var(--wk-focus, Highlight);
+  outline-offset: 2px;
+}
+
+@media (min-width: 45rem) {
+  .wk-nav {
+    order: 0;
+    flex-basis: auto;
+  }
+}

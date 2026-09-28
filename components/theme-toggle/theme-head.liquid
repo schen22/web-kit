@@ -1,0 +1,17 @@
+{%- comment -%}
+  web-kit 0.1.0 · components/theme-toggle/theme-head.liquid
+
+  Include first thing in <head>, before any stylesheet. Runs before first paint:
+  - adds `js` to <html>, so the toggle renders only when its script can work;
+  - applies a stored explicit choice, so there is no flash of the wrong theme.
+  With nothing stored, CSS follows the OS preference (`color-scheme: light dark`).
+{%- endcomment -%}
+<script>
+  document.documentElement.classList.add("js");
+  try {
+    const theme = localStorage.getItem("theme");
+    if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+  } catch (e) {
+    // Storage denied — the OS preference decides, via CSS.
+  }
+</script>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "theme-head.liquid" %}
+    <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ description | default: site.description }}">
+    <link rel="stylesheet" href="/assets/css/tokens.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/components/wk-header.css">
+    <link rel="stylesheet" href="/assets/css/components/wk-theme-toggle.css">
+    <script src="/assets/js/wk-theme.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {% include "header.liquid" %}
+    <main id="main">
+      {{ content }}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "web-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sarah's shared site components: header, theme toggle, token contract, new-site starter.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "gate": "scripts/gate.sh",
+    "gate:fast": "scripts/gate.sh"
+  }
+}

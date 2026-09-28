@@ -1,0 +1,23 @@
+{%- comment -%}
+  web-kit 0.1.0 · components/header/header.liquid
+
+  Wordmark, main nav, theme toggle. DOM order is the tab order: wordmark → nav →
+  toggle. Below --wk-wrap-at the toggle moves up beside the wordmark and the nav
+  wraps onto its own row (visual order differs from tab order there; the nav stays
+  one tab stop group, so this is accepted).
+
+  Needs global data `nav`: [{ url, label }]. The wordmark's content is the site's:
+  replace wk-wordmark.liquid (it must give the link an accessible name).
+  Whether the header shows on "/" is the site's call, in its base layout.
+{%- endcomment -%}
+<header class="wk-header">
+  <a class="wk-wordmark" href="/">{%- include "wk-wordmark.liquid" -%}</a>
+  <nav class="wk-nav" aria-label="Main">
+    <ul class="wk-nav__items">
+      {%- for item in nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {% include "theme-toggle.liquid" %}
+</header>

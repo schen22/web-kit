@@ -1,0 +1,15 @@
+{%- comment -%}
+  web-kit 0.1.0 · components/theme-toggle/theme-toggle.liquid
+
+  One two-state button. The label never changes ("Dark theme"); aria-pressed says
+  whether it is on. Which icon shows is decided only by CSS from [data-theme] and
+  the OS preference — theme.js flips the attribute, never the icon, so the icon
+  can't drift from the palette actually applied.
+
+  Icons are the site's: replace wk-icon-light.liquid / wk-icon-dark.liquid. Each
+  must be decorative (aria-hidden="true", focusable="false").
+{%- endcomment -%}
+<button type="button" class="wk-theme-toggle" aria-pressed="false" aria-label="Dark theme">
+  <span class="wk-theme-toggle__icon wk-theme-toggle__icon--light">{%- include "wk-icon-light.liquid" -%}</span>
+  <span class="wk-theme-toggle__icon wk-theme-toggle__icon--dark">{%- include "wk-icon-dark.liquid" -%}</span>
+</button>

@@ -1,0 +1,15 @@
+{
+  "name": "SITE_SLUG",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "test": "node --test test/*.test.js",
+    "gate": "scripts/gate.sh",
+    "gate:fast": "scripts/gate.sh"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  }
+}

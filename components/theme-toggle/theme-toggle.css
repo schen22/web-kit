@@ -1,0 +1,72 @@
+/* web-kit 0.1.0 · components/theme-toggle/theme-toggle.css
+ *
+ * Icon by state, lowest priority first:
+ *   1. nothing stored, OS light → light icon (base rule)
+ *   2. nothing stored, OS dark  → dark icon (media query)
+ *   3. [data-theme] set         → explicit choice wins
+ * Absent without JS (`html.js` comes from theme-head.liquid): a toggle that
+ * can't work is hidden, not dead.
+ */
+.wk-theme-toggle {
+  display: none;
+  position: relative;
+  inline-size: var(--wk-tap, 2.75rem);
+  block-size: var(--wk-tap, 2.75rem);
+  padding: 0;
+  border: 1px solid var(--wk-line, GrayText);
+  border-radius: var(--wk-radius, 0.5rem);
+  background: var(--wk-surface, Canvas);
+  color: var(--wk-ink, CanvasText);
+  cursor: pointer;
+}
+
+html.js .wk-theme-toggle {
+  display: inline-grid;
+  place-items: center;
+}
+
+.wk-theme-toggle:focus-visible {
+  outline: 2px solid var(--wk-focus, Highlight);
+  outline-offset: 2px;
+}
+
+.wk-theme-toggle__icon {
+  grid-area: 1 / 1;
+  display: grid;
+  opacity: 0;
+  transform: rotate(calc(-1 * var(--wk-toggle-spin, 180deg))) scale(0.5);
+  transition:
+    opacity var(--wk-fast, 300ms) var(--wk-ease, ease),
+    transform var(--wk-fast, 300ms) var(--wk-ease, ease);
+}
+
+.wk-theme-toggle__icon--light,
+html[data-theme="light"] .wk-theme-toggle__icon--light,
+html[data-theme="dark"] .wk-theme-toggle__icon--dark {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-theme="dark"] .wk-theme-toggle__icon--light,
+html[data-theme="light"] .wk-theme-toggle__icon--dark {
+  opacity: 0;
+  transform: rotate(var(--wk-toggle-spin, 180deg)) scale(0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .wk-theme-toggle__icon--light {
+    opacity: 0;
+    transform: rotate(var(--wk-toggle-spin, 180deg)) scale(0.5);
+  }
+
+  html:not([data-theme]) .wk-theme-toggle__icon--dark {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wk-theme-toggle__icon {
+    transition: none;
+  }
+}

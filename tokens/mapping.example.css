@@ -1,0 +1,32 @@
+/* web-kit 0.1.0 · tokens/mapping.example.css
+ *
+ * Copy ONE block into the site's tokens file, after its own palette. Map, don't
+ * rename: the site keeps its names, web-kit reads these.
+ */
+
+/* shindig-thingamajig (--t-* palette, generated per party theme) */
+:root {
+  --wk-ink: var(--t-ink);
+  --wk-surface: var(--t-card);
+  --wk-muted: var(--t-muted);
+  --wk-accent: var(--t-primary);
+  --wk-line: var(--t-line);
+  --wk-focus: var(--t-focus);
+  --wk-radius: var(--t-radius);
+  --wk-gap: var(--space-md);
+  --wk-page-max: var(--page-max);
+  --wk-fast: var(--fade-sm);
+  --wk-ease: var(--ease-envelope);
+}
+
+/* sarahs-corner / schen22.github.io (--ink / --base / --accent palette) */
+:root {
+  --wk-ink: var(--ink);
+  --wk-surface: var(--base);
+  --wk-muted: var(--muted);
+  --wk-accent: var(--accent);
+  --wk-line: var(--rule);
+  --wk-focus: var(--accent);
+  --wk-gap: var(--space-m);
+  --wk-toggle-spin: 0deg;        /* pixel sprites: fade only */
+}

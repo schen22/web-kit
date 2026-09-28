@@ -1,0 +1,27 @@
+/* web-kit 0.1.0 · tokens/contract.css
+ *
+ * The only custom properties web-kit components read. Each has a fallback, so a
+ * component renders without this file, but a site should map its own tokens here
+ * once (see tokens/mapping.example.css) and never edit component CSS for colour.
+ */
+:root {
+  /* Colour — map to the site's palette; must hold in light and dark. */
+  --wk-ink: CanvasText;          /* text, icons */
+  --wk-surface: Canvas;          /* button fill */
+  --wk-muted: GrayText;          /* nav links at rest */
+  --wk-accent: LinkText;         /* current page, hover */
+  --wk-line: GrayText;           /* borders */
+  --wk-focus: Highlight;         /* focus ring */
+
+  /* Shape and size */
+  --wk-radius: 0.5rem;
+  --wk-tap: 2.75rem;             /* min target size (44px) — never below 1.5rem */
+  --wk-gap: 1rem;                /* between header items */
+  --wk-page-max: 44rem;          /* header content width */
+  --wk-wrap-at: 45rem;           /* informational: header stacks below this (media query) */
+
+  /* Motion */
+  --wk-fast: 300ms;
+  --wk-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --wk-toggle-spin: 180deg;      /* 0deg or 90deg for pixel icons, which blur at other angles */
+}

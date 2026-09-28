@@ -1,0 +1,47 @@
+/* Palette — verify every pair in docs/design-system.md before changing a value. */
+:root {
+  color-scheme: light dark;
+  --bg: #fbf7ef;
+  --ink: #2b2b2b;
+  --muted: #5c5852;
+  --accent: #a63d2f;
+  --line: #8f876e;
+
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --measure: 38rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1f1c19;
+    --ink: #ece6da;
+    --muted: #b8b0a3;
+    --accent: #e08a6f;
+    --line: #8a8272;
+  }
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1f1c19;
+  --ink: #ece6da;
+  --muted: #b8b0a3;
+  --accent: #e08a6f;
+  --line: #8a8272;
+}
+
+/* web-kit mapping — the components read only these. */
+:root {
+  --wk-ink: var(--ink);
+  --wk-surface: var(--bg);
+  --wk-muted: var(--muted);
+  --wk-accent: var(--accent);
+  --wk-line: var(--line);
+  --wk-focus: var(--accent);
+  --wk-gap: var(--space-m);
+  --wk-page-max: 44rem;
+}
