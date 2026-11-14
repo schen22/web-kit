@@ -50,3 +50,14 @@ bump the stamp. Record the version in the site's `PLAN.md` Decisions.
 
 Bump `VERSION` and every stamp together (a test enforces it). Note the change in
 `CHANGELOG.md`. Sites pick changes up only when someone updates them — nothing is automatic.
+
+## Built with Claude Code
+
+Written with [Claude Code](https://claude.com/claude-code) and its
+[`web-kit` skill](https://github.com/schen22/claude-config/blob/main/skills/web-kit/SKILL.md),
+which copies these pieces into my sites. The workflow is in
+[claude-config](https://github.com/schen22/claude-config).
+
+## License
+
+[MIT](LICENSE).
