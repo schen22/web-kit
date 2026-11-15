@@ -4,6 +4,8 @@ Shared pieces for Sarah's 11ty + Liquid sites: a header, a light/dark theme togg
 the token contract they read, and a starter for new sites. Files are **copied into**
 each site (not installed), stamped `web-kit <version>`, and free to edit there.
 
+![The starter's header and theme toggle in light and dark, at desktop width (one row) and phone width (nav wraps to a second row)](docs/readme-hero.jpg)
+
 | Piece | Files | What it guarantees |
 |---|---|---|
 | Header | `components/header/` | Wordmark → nav → toggle. One row when wide; below 45rem, wordmark + toggle on row 1 and nav wrapping on row 2. `aria-current="page"`, targets ≥ 44px, visible focus |
